@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-13",
+  "models": [
+    {
+      "id": "e5-base",
+      "repository": "intfloat/multilingual-e5-base",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+      "source_url": "https://huggingface.co/intfloat/multilingual-e5-base",
+      "license": "MIT",
+      "dimension": 768,
+      "encoder_max_tokens": 512,
+      "pooling": "mean",
+      "dtype": "float32",
+      "query_prefix": "query: ",
+      "passage_prefix": "passage: ",
+      "local_path": "data/raw/models/e5-base-d1287505",
+      "files": [
+        {
+          "path": "1_Pooling/config.json",
+          "bytes": 200
+        },
+        {
+          "path": "README.md",
+          "bytes": 179345
+        },
+        {
+          "path": "config.json",
+          "bytes": 694
+        },
+        {
+          "path": "model.safetensors",
+          "bytes": 1112201288,
+          "sha256": "a18a44fad1d0b46ded15928144138cff1135d5cc8233bdd90be5f18822de09a7"
+        },
+        {
+          "path": "modules.json",
+          "bytes": 387
+        },
+        {
+          "path": "sentence_bert_config.json",
+          "bytes": 57
+        },
+        {
+          "path": "sentencepiece.bpe.model",
+          "bytes": 5069051,
+          "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "bytes": 280
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 17082660,
+          "sha256": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 418
+        }
+      ]
+    },
+    {
+      "id": "qwen3-0.6b",
+      "repository": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+      "license": "Apache-2.0",
+      "dimension": 1024,
+      "encoder_max_tokens": 32768,
+      "pooling": "last_token",
+      "dtype": "bfloat16",
+      "query_prefix": "Instruct: Given a medical literature search query, retrieve relevant passages that answer the query\nQuery:",
+      "passage_prefix": "",
+      "local_path": "data/raw/models/qwen3-0.6b-97b0c614",
+      "files": [
+        {
+          "path": "1_Pooling/config.json",
+          "bytes": 313
+        },
+        {
+          "path": "README.md",
+          "bytes": 17237
+        },
+        {
+          "path": "config.json",
+          "bytes": 727
+        },
+        {
+          "path": "config_sentence_transformers.json",
+          "bytes": 215
+        },
+        {
+          "path": "generation_config.json",
+          "bytes": 117
+        },
+        {
+          "path": "merges.txt",
+          "bytes": 1671853
+        },
+        {
+          "path": "model.safetensors",
+          "bytes": 1191586416,
+          "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+        },
+        {
+          "path": "modules.json",
+          "bytes": 349
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 11423705,
+          "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 9706
+        },
+        {
+          "path": "vocab.json",
+          "bytes": 2776833
+        }
+      ]
+    }
+  ]
+}

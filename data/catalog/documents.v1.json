@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "catalog_version": "2026-11-13.1",
+  "verified_on": "2026-11-11",
+  "scope": "PI-RADS: manual actual y antecedentes. Nunca mezclar versiones como evidencia equivalente.",
+  "documents": [
+    {
+      "id": "pirads-2.1-2019",
+      "title": "PI-RADS Prostate Imaging Reporting and Data System v2.1",
+      "version": "2.1",
+      "year": 2019,
+      "responsible": [
+        "ACR",
+        "ESUR",
+        "AdMeTech Foundation"
+      ],
+      "role": "current_official_manual",
+      "status": "user_provided_usage_confirmed",
+      "format": "application/pdf",
+      "language": "en",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/PI-RADS",
+      "download_url": "https://edge.sitecorecloud.io/americancoldf5f-acrorgf92a-productioncb02-3650/media/ACR/Files/RADS/PI-RADS/PIRADS-2019.pdf",
+      "legacy_url": "https://www.acr.org/-/media/ACR/Files/RADS/Pi-RADS/PIRADS-v2-1.pdf",
+      "local_path": "data/raw/pirads-2.1-2019/manual.pdf",
+      "expected_pages": 76,
+      "structure": [
+        "texto",
+        "tablas de criterios",
+        "diagramas sectoriales",
+        "figuras",
+        "apéndices y léxico"
+      ],
+      "rights": {
+        "license": "Copyright; no se identificó licencia abierta",
+        "auto_download": false,
+        "redistribute": false,
+        "evidence_url": "https://www.acr.org/Legal",
+        "permission_url": "https://form.jotform.us/71095935087162",
+        "note": "Archivo aportado por el usuario; cobertura de uso confirmada para el laboratorio. Conservar avisos y procedencia.",
+        "usage_authorization": {
+          "basis": "user_confirmed",
+          "confirmed_on": "2026-11-13",
+          "note": "El usuario confirmó que el uso del PDF aportado está cubierto y autorizó su incorporación y procesamiento en el laboratorio."
+        }
+      },
+      "expected_sha256": "594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2",
+      "processing": {
+        "layout_path": "data/catalog/pirads-2.1-2019-layout.v1.json",
+        "reference_path": "data/evaluations/pirads-2.1-2019-parsing-regions.v1.json",
+        "sample_region_id": "p011-body",
+        "inspection_group_id": "t2w-assessment"
+      }
+    },
+    {
+      "id": "pirads-2.0-2015",
+      "title": "PI-RADS 2015 v2 (full text document)",
+      "version": "2.0",
+      "year": 2015,
+      "responsible": [
+        "ACR",
+        "ESUR",
+        "AdMeTech Foundation"
+      ],
+      "role": "archived_official_manual",
+      "status": "manual_authorization_required",
+      "format": "application/pdf",
+      "language": "en",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/PI-RADS",
+      "download_url": "https://edge.sitecorecloud.io/americancoldf5f-acrorgf92a-productioncb02-3650/media/ACR/Files/RADS/PI-RADS/PIRADS-2015.pdf",
+      "local_path": "data/raw/pirads-2.0-2015/manual.pdf",
+      "expected_pages": 64,
+      "structure": [
+        "texto",
+        "tablas",
+        "figuras",
+        "léxico"
+      ],
+      "rights": {
+        "license": "Copyright; no se identificó licencia abierta",
+        "auto_download": false,
+        "redistribute": false,
+        "evidence_url": "https://www.acr.org/Legal",
+        "permission_url": "https://form.jotform.us/71095935087162",
+        "note": "Archivo histórico; no incorporado para evitar mezclar versiones en el baseline."
+      }
+    },
+    {
+      "id": "esur-2012",
+      "title": "ESUR prostate MR guidelines 2012",
+      "version": "ESUR-2012 / antecedente PI-RADS v1",
+      "year": 2012,
+      "responsible": [
+        "ESUR working group",
+        "Barentsz JO et al."
+      ],
+      "role": "historical_primary_guideline",
+      "status": "open_noncommercial_download_available",
+      "format": "application/pdf",
+      "language": "en",
+      "doi": "10.1007/s00330-011-2377-y",
+      "pmcid": "PMC3297750",
+      "source_url": "https://link.springer.com/article/10.1007/s00330-011-2377-y",
+      "download_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3297750.1/PMC3297750.1.pdf",
+      "publisher_pdf_url": "https://link.springer.com/content/pdf/10.1007/s00330-011-2377-y.pdf",
+      "repository_metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3297750.1/PMC3297750.1.json",
+      "repository_version": "PMC3297750.1",
+      "expected_sha256": "a2e257380f518454278f22da7971d005c9e7b56d66c1a998b48ec163c26e90ff",
+      "local_path": "data/raw/esur-2012/guideline.pdf",
+      "expected_pages": 12,
+      "structure": [
+        "dos columnas",
+        "protocolos tabulados",
+        "criterios estructurados",
+        "referencias"
+      ],
+      "rights": {
+        "license": "Creative Commons Attribution Noncommercial (ver declaración editorial)",
+        "auto_download": true,
+        "redistribute": "sólo bajo licencia, atribución y uso no comercial; el proyecto excluye todos los originales de Git",
+        "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3297750/",
+        "note": "Fuente primaria histórica con permiso explícito no comercial; no sustituye los criterios vigentes de v2.1. Atribuir Barentsz et al., European Radiology 22, 746-757 (2012), DOI indicado."
+      },
+      "processing": {
+        "layout_path": "data/catalog/esur-2012-layout.v1.json",
+        "reference_path": "data/evaluations/parsing_regions.v1.json",
+        "sample_region_id": "p07-equipment",
+        "inspection_group_id": "table-3"
+      }
+    },
+    {
+      "id": "pirads-2.1-changes",
+      "title": "Summary of Changes from PI-RADS 2.0 to 2.1",
+      "version": "2.0-to-2.1",
+      "year": 2019,
+      "responsible": [
+        "ACR"
+      ],
+      "role": "official_supplement",
+      "status": "manual_authorization_required",
+      "format": "application/pdf",
+      "language": "en",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/PI-RADS",
+      "download_url": "https://edge.sitecorecloud.io/americancoldf5f-acrorgf92a-productioncb02-3650/media/ACR/Files/RADS/PI-RADS/PIRADS-Revisions.pdf",
+      "local_path": "data/raw/pirads-2.1-changes/changes.pdf",
+      "expected_pages": 29,
+      "rights": {
+        "license": "Copyright; permiso pendiente",
+        "auto_download": false,
+        "redistribute": false,
+        "evidence_url": "https://www.acr.org/Legal"
+      }
+    },
+    {
+      "id": "pirads-2.1-lexicon",
+      "title": "PI-RADS v2.1 Lexicon",
+      "version": "2.1",
+      "year": 2019,
+      "responsible": [
+        "ACR",
+        "ESUR",
+        "AdMeTech Foundation"
+      ],
+      "role": "official_supplement",
+      "status": "manual_authorization_required",
+      "format": "application/pdf",
+      "language": "en",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/PI-RADS",
+      "download_url": "https://edge.sitecorecloud.io/americancoldf5f-acrorgf92a-productioncb02-3650/media/ACR/Files/RADS/PI-RADS/PIRADS-Lexicon.pdf",
+      "local_path": "data/raw/pirads-2.1-lexicon/lexicon.pdf",
+      "expected_pages": 9,
+      "rights": {
+        "license": "Copyright; permiso pendiente",
+        "auto_download": false,
+        "redistribute": false,
+        "evidence_url": "https://www.acr.org/Legal"
+      }
+    }
+  ],
+  "updated_on": "2026-11-13",
+  "active_document_id": "pirads-2.1-2019"
+}

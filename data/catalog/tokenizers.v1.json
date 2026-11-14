@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "tokenizers": [{
+    "id": "multilingual-e5-base",
+    "repository": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "sha256": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626",
+    "filename": "tokenizer.json",
+    "local_path": "data/raw/tokenizers/e5-base-d128750/tokenizer.json",
+    "source_url": "https://huggingface.co/intfloat/multilingual-e5-base",
+    "license": "MIT",
+    "passage_prefix": "passage: ",
+    "encoder_max_tokens": 512,
+    "note": "Sólo tokenización. No contiene pesos ni produce embeddings. Revisión consultada 2026-11-11."
+  }]
+}

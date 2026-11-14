@@ -1,0 +1,24 @@
+{
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "quantization": "Q4_K_M",
+  "num_ctx": 8192,
+  "num_predict": 512,
+  "tokenizer": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "path": "data/raw/models/qwen3-4b-instruct-tokenizer-cdbee75f",
+    "files": [
+      {
+        "path": "tokenizer.json",
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "bytes": 11422654
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+        "bytes": 9377
+      }
+    ]
+  },
+  "ollama_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0"
+}

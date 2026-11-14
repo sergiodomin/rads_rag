@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "layout_version": "esur-2012-layout-v1",
+  "document_id": "esur-2012",
+  "source_sha256": "a2e257380f518454278f22da7971d005c9e7b56d66c1a998b48ec163c26e90ff",
+  "review_status": "agent_visual_reviewed_human_pending",
+  "manual_objects": [{"object_id":"p04-vector-figure-1", "page_number":4,
+    "bbox":[220,485,547,721], "object_type":"vector_diagram",
+    "status":"not_transcribed_relations_unresolved"}],
+  "coordinate_system": "PDF points, top-left origin, [x0, top, x1, bottom]",
+  "policy": "Mapa específico de este PDF; no reutilizar para otros documentos. Preservar tabla 3 multipágina como grupo y registrar las figuras sin OCR.",
+  "pages": [
+    {"page_number": 1, "regions": [
+      {"id":"p01-title", "bbox":[50,103,545,130], "kind":"prose", "section_path":["Front matter"]},
+      {"id":"p01-abstract", "bbox":[50,280,295,478], "kind":"prose", "section_path":["Abstract"]},
+      {"id":"p01-intro", "bbox":[304,280,547,478], "kind":"prose", "section_path":["Key points and introduction"]}
+    ]},
+    {"page_number": 2, "regions": [
+      {"id":"p02-intro", "bbox":[50,53,295,255], "kind":"prose", "section_path":["Introduction"]},
+      {"id":"p02-methods", "bbox":[50,260,295,435], "kind":"prose", "section_path":["Methods"]},
+      {"id":"p02-section1-left", "bbox":[50,440,295,598], "kind":"prose", "section_path":["Section 1. Clinical use of MRI"]},
+      {"id":"p02-section1-right", "bbox":[304,53,547,598], "kind":"prose", "section_path":["Section 1. Clinical use of MRI"]},
+      {"id":"p02-table1", "bbox":[50,600,547,716], "kind":"table", "group_id":"table-1", "section_path":["Table 1"]}
+    ]},
+    {"page_number": 3, "regions": [
+      {"id":"p03-table2", "bbox":[50,53,547,457], "kind":"table", "group_id":"table-2", "section_path":["Table 2"]},
+      {"id":"p03-left", "bbox":[50,470,295,735], "kind":"prose", "section_path":["Section 1. Clinical use of MRI"]},
+      {"id":"p03-right", "bbox":[304,470,547,735], "kind":"prose", "section_path":["Section 1. Clinical use of MRI"]}
+    ]},
+    {"page_number": 4, "regions": [
+      {"id":"p04-clinical", "bbox":[50,53,295,352], "kind":"prose", "section_path":["Section 1. Clinical use of MRI"]},
+      {"id":"p04-mri-left", "bbox":[50,355,295,480], "kind":"prose", "section_path":["Section 2. MRI sequences for prostate gland evaluation"]},
+      {"id":"p04-right", "bbox":[304,53,547,480], "kind":"prose", "section_path":["Section 2. MRI sequences for prostate gland evaluation"]},
+      {"id":"p04-figure1-caption", "bbox":[50,488,205,555], "kind":"metadata", "section_path":["Figure 1 caption"], "unresolved_objects":["p04-vector-figure-1"]}
+    ]},
+    {"page_number": 5, "regions": [
+      {"id":"p05-caption", "bbox":[50,374,295,456], "kind":"metadata", "section_path":["Figure 2 caption"], "unresolved_objects":["p05-image-1"]},
+      {"id":"p05-left", "bbox":[50,462,295,735], "kind":"prose", "section_path":["Section 2. MRI sequences for prostate gland evaluation"]},
+      {"id":"p05-right", "bbox":[304,53,547,735], "kind":"prose", "section_path":["Interpretation"]}
+    ]},
+    {"page_number": 6, "regions": [
+      {"id":"p06-caption-left", "bbox":[50,419,295,552], "kind":"metadata", "section_path":["Figure 3 caption"], "unresolved_objects":["p06-image-1"]},
+      {"id":"p06-caption-right", "bbox":[304,419,547,552], "kind":"metadata", "section_path":["Figure 3 caption"], "unresolved_objects":["p06-image-1"]},
+      {"id":"p06-left", "bbox":[50,561,295,735], "kind":"prose", "section_path":["Interpretation"]},
+      {"id":"p06-right", "bbox":[304,561,547,735], "kind":"prose", "section_path":["Interpretation"]}
+    ]},
+    {"page_number": 7, "regions": [
+      {"id":"p07-left", "bbox":[50,53,295,735], "kind":"prose", "section_path":["Interpretation"]},
+      {"id":"p07-equipment", "bbox":[304,53,547,442], "kind":"prose", "section_path":["Section 3. MR equipment"]},
+      {"id":"p07-reporting", "bbox":[304,450,547,735], "kind":"prose", "section_path":["Section 4. Integration, reporting and communication"]}
+    ]},
+    {"page_number": 8, "regions": [
+      {"id":"p08-table3", "bbox":[50,53,547,463], "kind":"table", "group_id":"table-3", "section_path":["Table 3"], "unresolved_objects":["p08-image-1"]}
+    ]},
+    {"page_number": 9, "regions": [
+      {"id":"p09-table3", "bbox":[50,52,547,270], "kind":"table", "group_id":"table-3", "section_path":["Table 3"], "unresolved_objects":["p08-image-1"]},
+      {"id":"p09-left", "bbox":[50,292,295,478], "kind":"prose", "section_path":["Section 4. Integration, reporting and communication"]},
+      {"id":"p09-right", "bbox":[304,292,547,478], "kind":"prose", "section_path":["Section 4. Integration, reporting and communication"]},
+      {"id":"p09-table4", "bbox":[50,488,547,716], "kind":"table", "group_id":"table-4", "section_path":["Table 4"]}
+    ]},
+    {"page_number": 10, "regions": [
+      {"id":"p10-conclusion", "bbox":[50,53,295,420], "kind":"prose", "section_path":["Reporting and conclusion"]},
+      {"id":"p10-notices", "bbox":[50,430,295,558], "kind":"metadata", "section_path":["Acknowledgements and license"]},
+      {"id":"p10-references-left", "bbox":[50,572,295,735], "kind":"reference", "section_path":["References"]},
+      {"id":"p10-references-right", "bbox":[304,53,547,735], "kind":"reference", "section_path":["References"]}
+    ]},
+    {"page_number": 11, "regions": [
+      {"id":"p11-left", "bbox":[50,53,295,735], "kind":"reference", "section_path":["References"]},
+      {"id":"p11-right", "bbox":[304,53,547,735], "kind":"reference", "section_path":["References"]}
+    ]},
+    {"page_number": 12, "regions": [
+      {"id":"p12-left", "bbox":[50,53,295,735], "kind":"reference", "section_path":["References"]},
+      {"id":"p12-right", "bbox":[304,53,547,735], "kind":"reference", "section_path":["References"]}
+    ]}
+  ]
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f6">
+  <title>Radiology Lab · Chat documental</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Configuración">
+    <a class="brand" href="/" aria-label="Radiology Lab, inicio"><span class="brand-mark">r.</span><span>radiology<span class="brand-light"> / lab</span></span></a>
+    <span class="eyebrow sidebar-label">KNOWLEDGE WORKSPACE</span>
+    <button id="new-chat" class="new-chat" type="button"><span>＋</span> Nueva conversación</button>
+    <div class="document-card"><span class="document-icon">PDF</span><div><strong>PI-RADS v2.1</strong><span>Manual oficial · 2019</span></div><span class="document-dot" title="Índice disponible"></span></div>
+    <a class="document-link" href="/document.pdf" target="_blank" rel="noopener">Abrir el manual <span>↗</span></a>
+    <div class="settings">
+      <label for="mode">Modo</label><select id="mode"><option value="chat">Chat con respuestas</option><option value="search">Sólo buscar fragmentos</option></select>
+      <label for="model">Modelo de respuesta <span class="cloud-label">GEN</span></label><select id="model" aria-describedby="provider-message"><option value="">Comprobando modelos…</option></select>
+      <label for="encoder">Modelo de embeddings</label><select id="encoder"><option value="e5-base">E5 multilingual base</option><option value="qwen3-0.6b" selected>Qwen3 Embedding 0.6B</option></select>
+      <label for="collection">Segmentación del manual</label><select id="collection"><option value="fixed_512_15">512 tokens · overlap 15 %</option><option value="structural_512">Estructural · padres e hijos</option></select>
+      <p class="settings-note">Los cambios se aplican a la próxima pregunta.</p>
+    </div>
+    <div class="sidebar-bottom"><span class="runtime-dot"></span><span>Embeddings locales · CUDA</span><p>Laboratorio educativo<br>Texto y referencias del manual</p></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><span class="breadcrumb">Biblioteca <span>/</span></span> <strong>Chat documental</strong></div><div class="header-actions"><span id="connection" class="connection">Conectando…</span><button id="toggle-sources" class="subtle-button" type="button" aria-expanded="false" aria-controls="sources-panel">Fuentes <span id="source-count">0</span></button></div></header>
+    <div class="workspace">
+      <section class="conversation" aria-label="Conversación">
+        <div id="welcome" class="welcome">
+          <div class="hero-mark" aria-hidden="true"><span>r.</span><i></i></div>
+          <span class="eyebrow">TU BIBLIOTECA, EN CONVERSACIÓN</span>
+          <h1>El manual,<br>a una pregunta.</h1>
+          <p>Explora PI-RADS v2.1 con respuestas vinculadas<br class="desktop-break"> a sus páginas y fragmentos originales.</p>
+          <div class="suggestions" aria-label="Preguntas sugeridas">
+            <button type="button" data-question="¿Dónde explica el manual cómo elegir la lesión índice cuando hay varias lesiones?"><span class="suggestion-icon">↗</span><strong>Lesión índice</strong><span>Consultar los criterios de selección</span></button>
+            <button type="button" data-question="¿Cómo recomienda PI-RADS medir las lesiones y qué dimensión debe registrarse?"><span class="suggestion-icon">↗</span><strong>Medición de lesiones</strong><span>Revisar las indicaciones del manual</span></button>
+            <button type="button" data-question="¿Qué función tiene el contraste dinámico DCE en PI-RADS v2.1?"><span class="suggestion-icon">↗</span><strong>Secuencia DCE</strong><span>Entender su papel en PI-RADS</span></button>
+          </div>
+        </div>
+        <div id="messages" class="messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="composer-area">
+          <p id="provider-message" class="provider-message" role="status"></p>
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="question">Tu pregunta sobre PI-RADS</label>
+            <textarea id="question" rows="2" maxlength="1600" placeholder="Pregunta sobre el manual de PI-RADS…" required></textarea>
+            <div class="composer-bottom"><span id="composer-hint">PI-RADS v2.1 <span>·</span> 4 fragmentos por consulta</span><button id="send" type="submit" disabled>Enviar <span aria-hidden="true">↗</span></button></div>
+          </form>
+          <p id="cloud-note" class="privacy-note">El modo de procesamiento se muestra al conectar con el servidor.</p>
+        </div>
+      </section>
+      <aside id="sources-panel" class="sources-panel" aria-label="Fuentes de la respuesta" hidden>
+        <div class="sources-heading"><div><span class="eyebrow">EVIDENCIA DOCUMENTAL</span><h2>Fuentes recuperadas</h2></div><button id="close-sources" type="button" class="icon-button" aria-label="Cerrar fuentes">×</button></div>
+        <p class="sources-intro">Fragmentos del contexto de esta respuesta. Abre el PDF para revisar la página completa.</p>
+        <div id="sources-list"></div>
+        <p class="sources-note">Las referencias localizan texto; no validan por sí solas todas las afirmaciones. Las figuras no están interpretadas.</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

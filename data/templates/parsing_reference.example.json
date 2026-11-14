@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "document_id": "your-document-id",
+  "source_sha256": "replace-with-your-local-pdf-sha256",
+  "status": "not_reviewed",
+  "note": "Plantilla sin contenido documental. Las transcripciones se conservan localmente.",
+  "regions": [],
+  "evidence_cases": []
+}

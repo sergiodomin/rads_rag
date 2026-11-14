@@ -1,0 +1,1523 @@
+{
+  "schema_version": 1,
+  "layout_version": "pirads-2.1-2019-layout-v1",
+  "document_id": "pirads-2.1-2019",
+  "source_sha256": "594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2",
+  "review_status": "agent_visual_reviewed_human_pending",
+  "coordinate_system": "PDF points, top-left origin, [x0, top, x1, bottom]",
+  "policy": "Mapa del manual aportado por el usuario. Encabezados y pies fuera del corpus; tablas y páginas del léxico conservadas como unidades. Figuras y ejemplos cumplimentados conservados como metadata para revisión.",
+  "decorative_image_bands": [
+    [
+      0,
+      0,
+      620,
+      65
+    ]
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "page_label": "i",
+      "regions": [
+        {
+          "id": "p001-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ],
+      "image_policy": "decorative_page"
+    },
+    {
+      "page_number": 2,
+      "page_label": "ii",
+      "regions": [
+        {
+          "id": "p002-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ],
+      "image_policy": "decorative_page"
+    },
+    {
+      "page_number": 3,
+      "page_label": "iii",
+      "regions": [
+        {
+          "id": "p003-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_label": "iv",
+      "regions": [
+        {
+          "id": "p004-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_label": "v",
+      "regions": [
+        {
+          "id": "p005-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_label": "vi",
+      "regions": [
+        {
+          "id": "p006-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "page_label": "vii",
+      "regions": [
+        {
+          "id": "p007-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Front matter"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_label": "1",
+      "regions": [
+        {
+          "id": "p008-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Introduction"
+          ],
+          "join_dropcap": true
+        }
+      ]
+    },
+    {
+      "page_number": 9,
+      "page_label": "2",
+      "regions": [
+        {
+          "id": "p009-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Introduction"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 10,
+      "page_label": "3",
+      "regions": [
+        {
+          "id": "p010-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Introduction"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 11,
+      "page_label": "4",
+      "regions": [
+        {
+          "id": "p011-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section I. Clinical considerations and technical specifications"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 12,
+      "page_label": "5",
+      "regions": [
+        {
+          "id": "p012-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section I. Clinical considerations and technical specifications"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 13,
+      "page_label": "6",
+      "regions": [
+        {
+          "id": "p013-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section I. Clinical considerations and technical specifications"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 14,
+      "page_label": "7",
+      "regions": [
+        {
+          "id": "p014-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section II. Normal anatomy and benign findings"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 15,
+      "page_label": "8",
+      "regions": [
+        {
+          "id": "p015-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section II. Normal anatomy and benign findings"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 16,
+      "page_label": "9",
+      "regions": [
+        {
+          "id": "p016-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section II. Normal anatomy and benign findings"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 17,
+      "page_label": "10",
+      "regions": [
+        {
+          "id": "p017-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 18,
+      "page_label": "11",
+      "regions": [
+        {
+          "id": "p018-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ],
+          "group_id": "overall-assessment"
+        }
+      ]
+    },
+    {
+      "page_number": 19,
+      "page_label": "12",
+      "regions": [
+        {
+          "id": "p019-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 20,
+      "page_label": "13",
+      "regions": [
+        {
+          "id": "p020-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 21,
+      "page_label": "14",
+      "regions": [
+        {
+          "id": "p021-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 22,
+      "page_label": "15",
+      "regions": [
+        {
+          "id": "p022-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 23,
+      "page_label": "16",
+      "regions": [
+        {
+          "id": "p023-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Section III. Assessment and reporting"
+          ],
+          "group_id": "inadequate-sequences"
+        }
+      ]
+    },
+    {
+      "page_number": 24,
+      "page_label": "17",
+      "regions": [
+        {
+          "id": "p024-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 25,
+      "page_label": "18",
+      "regions": [
+        {
+          "id": "p025-technical",
+          "bbox": [
+            70,
+            68,
+            552,
+            251
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        },
+        {
+          "id": "p025-t2w",
+          "bbox": [
+            108,
+            252,
+            552,
+            720
+          ],
+          "kind": "table",
+          "section_path": [
+            "Section IV. Multiparametric MRI",
+            "T2W assessment"
+          ],
+          "group_id": "t2w-assessment"
+        }
+      ]
+    },
+    {
+      "page_number": 26,
+      "page_label": "19",
+      "regions": [
+        {
+          "id": "p026-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 27,
+      "page_label": "20",
+      "regions": [
+        {
+          "id": "p027-dwi",
+          "bbox": [
+            108,
+            94,
+            552,
+            340
+          ],
+          "kind": "table",
+          "section_path": [
+            "Section IV. Multiparametric MRI",
+            "DWI assessment"
+          ],
+          "group_id": "dwi-assessment"
+        },
+        {
+          "id": "p027-caveats",
+          "bbox": [
+            70,
+            342,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI",
+            "DWI caveats"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 28,
+      "page_label": "21",
+      "regions": [
+        {
+          "id": "p028-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 29,
+      "page_label": "22",
+      "regions": [
+        {
+          "id": "p029-technical",
+          "bbox": [
+            70,
+            68,
+            552,
+            575
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        },
+        {
+          "id": "p029-dce",
+          "bbox": [
+            108,
+            576,
+            552,
+            720
+          ],
+          "kind": "table",
+          "section_path": [
+            "Section IV. Multiparametric MRI",
+            "DCE assessment"
+          ],
+          "group_id": "dce-assessment"
+        }
+      ]
+    },
+    {
+      "page_number": 30,
+      "page_label": "23",
+      "regions": [
+        {
+          "id": "p030-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 31,
+      "page_label": "24",
+      "regions": [
+        {
+          "id": "p031-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section IV. Multiparametric MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 32,
+      "page_label": "25",
+      "regions": [
+        {
+          "id": "p032-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Section V. Staging"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 33,
+      "page_label": "26",
+      "regions": [
+        {
+          "id": "p033-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Appendix I. Report templates"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 34,
+      "page_label": "27",
+      "regions": [
+        {
+          "id": "p034-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Appendix I. Report templates"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 35,
+      "page_label": "28",
+      "regions": [
+        {
+          "id": "p035-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Appendix I. Filled report example"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 36,
+      "page_label": "29",
+      "regions": [
+        {
+          "id": "p036-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Appendix I. Filled report example"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 37,
+      "page_label": "30",
+      "regions": [
+        {
+          "id": "p037-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "prose",
+          "section_path": [
+            "Appendix II. Sector map"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 38,
+      "page_label": "31",
+      "regions": [
+        {
+          "id": "p038-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Appendix II. Sector map image"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 39,
+      "page_label": "32",
+      "regions": [
+        {
+          "id": "p039-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-39"
+        }
+      ]
+    },
+    {
+      "page_number": 40,
+      "page_label": "33",
+      "regions": [
+        {
+          "id": "p040-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-40"
+        }
+      ]
+    },
+    {
+      "page_number": 41,
+      "page_label": "34",
+      "regions": [
+        {
+          "id": "p041-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-41"
+        }
+      ]
+    },
+    {
+      "page_number": 42,
+      "page_label": "35",
+      "regions": [
+        {
+          "id": "p042-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-42"
+        }
+      ]
+    },
+    {
+      "page_number": 43,
+      "page_label": "36",
+      "regions": [
+        {
+          "id": "p043-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-43"
+        }
+      ]
+    },
+    {
+      "page_number": 44,
+      "page_label": "37",
+      "regions": [
+        {
+          "id": "p044-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-44"
+        }
+      ]
+    },
+    {
+      "page_number": 45,
+      "page_label": "38",
+      "regions": [
+        {
+          "id": "p045-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-45"
+        }
+      ]
+    },
+    {
+      "page_number": 46,
+      "page_label": "39",
+      "regions": [
+        {
+          "id": "p046-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-46"
+        }
+      ]
+    },
+    {
+      "page_number": 47,
+      "page_label": "40",
+      "regions": [
+        {
+          "id": "p047-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "table",
+          "section_path": [
+            "Appendix III. Lexicon"
+          ],
+          "group_id": "lexicon-page-47"
+        }
+      ]
+    },
+    {
+      "page_number": 48,
+      "page_label": "41",
+      "regions": [
+        {
+          "id": "p048-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Appendices IV-V. Placeholder and atlas link"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 49,
+      "page_label": "42",
+      "regions": [
+        {
+          "id": "p049-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Appendices IV-V. Placeholder and atlas link"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 50,
+      "page_label": "43",
+      "regions": [
+        {
+          "id": "p050-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 51,
+      "page_label": "44",
+      "regions": [
+        {
+          "id": "p051-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 52,
+      "page_label": "45",
+      "regions": [
+        {
+          "id": "p052-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 53,
+      "page_label": "46",
+      "regions": [
+        {
+          "id": "p053-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 54,
+      "page_label": "47",
+      "regions": [
+        {
+          "id": "p054-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 55,
+      "page_label": "48",
+      "regions": [
+        {
+          "id": "p055-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 56,
+      "page_label": "49",
+      "regions": [
+        {
+          "id": "p056-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 57,
+      "page_label": "50",
+      "regions": [
+        {
+          "id": "p057-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 58,
+      "page_label": "51",
+      "regions": [
+        {
+          "id": "p058-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "reference",
+          "section_path": [
+            "References"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 59,
+      "page_label": "52",
+      "regions": [
+        {
+          "id": "p059-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 60,
+      "page_label": "53",
+      "regions": [
+        {
+          "id": "p060-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 61,
+      "page_label": "54",
+      "regions": [
+        {
+          "id": "p061-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 62,
+      "page_label": "55",
+      "regions": [
+        {
+          "id": "p062-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 63,
+      "page_label": "56",
+      "regions": [
+        {
+          "id": "p063-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 64,
+      "page_label": "57",
+      "regions": [
+        {
+          "id": "p064-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 65,
+      "page_label": "58",
+      "regions": [
+        {
+          "id": "p065-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 66,
+      "page_label": "59",
+      "regions": [
+        {
+          "id": "p066-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 67,
+      "page_label": "60",
+      "regions": [
+        {
+          "id": "p067-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 68,
+      "page_label": "61",
+      "regions": [
+        {
+          "id": "p068-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 69,
+      "page_label": "62",
+      "regions": [
+        {
+          "id": "p069-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 70,
+      "page_label": "63",
+      "regions": [
+        {
+          "id": "p070-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 71,
+      "page_label": "64",
+      "regions": [
+        {
+          "id": "p071-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 72,
+      "page_label": "65",
+      "regions": [
+        {
+          "id": "p072-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 73,
+      "page_label": "66",
+      "regions": [
+        {
+          "id": "p073-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 74,
+      "page_label": "67",
+      "regions": [
+        {
+          "id": "p074-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 75,
+      "page_label": "68",
+      "regions": [
+        {
+          "id": "p075-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 76,
+      "page_label": "69",
+      "regions": [
+        {
+          "id": "p076-body",
+          "bbox": [
+            70,
+            68,
+            552,
+            734
+          ],
+          "kind": "metadata",
+          "section_path": [
+            "Credits and figures"
+          ]
+        }
+      ]
+    }
+  ]
+}
