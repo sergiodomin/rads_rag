@@ -114,7 +114,7 @@ class OllamaCloudClient:
         except (KeyError, TypeError):
             raise OllamaError("Lista de modelos con formato inesperado.") from None
 
-    def chat(self, messages: list[dict[str, str]]) -> ChatResult:
+    def chat(self, messages: list[dict[str, Any]], *, response_format=None) -> ChatResult:
         if not self.settings.is_local and not self.settings.api_key.strip():
             raise ValueError("Falta OLLAMA_API_KEY; no se ha realizado ninguna llamada.")
         if not self.settings.model.strip():
@@ -133,6 +133,8 @@ class OllamaCloudClient:
             payload["keep_alive"] = 0
         if self.settings.think is not None:
             payload["think"] = self.settings.think
+        if response_format is not None:
+            payload["format"] = response_format
         data, attempts = self._request("POST", "/api/chat", json=payload)
         message = data.get("message")
         content = message.get("content") if isinstance(message, dict) else None

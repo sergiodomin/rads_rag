@@ -1,6 +1,7 @@
 # Recuperación densa, CAG, grafos y varios RADS
 
-Estado a 2026-11-15. El sistema ejecutado es un RAG denso sobre PI-RADS v2.1.
+Estado a 2026-11-15. El sistema ejecutado es un RAG denso sobre PI-RADS v2.1
+y una revisión secundaria de BI-RADS v2025 publicada en 2026.
 CAG, GraphRAG y la consulta simultánea de varios RADS son propuestas de experimentos.
 
 ## Qué significa denso
@@ -90,12 +91,13 @@ construcción/actualización. Los resúmenes generados no sustituyen a la fuente
 
 ## Diseño multi-RADS
 
-Actualmente `active_document_id`, el constructor de índices y las etiquetas del
-chat delimitan PI-RADS v2.1. Añadir una fila al catálogo no habilita por sí solo
-una nueva familia. ESUR-2012 está disponible como antecedente separado, no en la
-búsqueda del chat. No se han incorporado BI-RADS, LI-RADS, TI-RADS u otros.
+El registro `chat_document_ids` habilita documentos con índices completos. El chat
+incluye PI-RADS v2.1 y una revisión secundaria de BI-RADS v2025, con filtros por
+sistema y citas por documento. ESUR-2012 permanece como antecedente separado.
+El manual oficial BI-RADS, LI-RADS y TI-RADS no están incorporados. Una entrada
+en el catálogo no habilita una fuente sin su procesamiento e índice verificables.
 
-La ampliación propuesta comprende:
+El diseño general y los requisitos para futuras ampliaciones comprenden:
 
 1. Registrar por documento `system`, `document_id`, versión, idioma, órgano/modalidad,
    organismo, procedencia, derechos y SHA-256. Revisar mapas de parsing y tablas

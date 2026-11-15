@@ -134,7 +134,5 @@ uv run python scripts/prepare_embedding_models.py
 uv run --extra embeddings python scripts/execute_notebooks.py 03_embeddings_and_retrieval.ipynb --timeout 1800
 ```
 
-En esta copia los modelos ya están preparados. No se hacen llamadas LLM ni
-descargas durante el notebook. Las pruebas CUDA y el notebook terminaron tras
-reparar Windows y reiniciar manualmente. Esto acredita esa ejecución concreta;
-no confirma que la causa de los tres reinicios anteriores esté resuelta.
+El notebook requiere los modelos preparados localmente y no realiza llamadas LLM
+ni descargas durante su ejecución. Se verificó una ejecución completa con CUDA.

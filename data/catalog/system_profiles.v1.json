@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "system": "PI-RADS",
+      "document_id": "pirads-2.1-2019",
+      "source_sha256": "594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/PI-RADS",
+      "organ": {"es": "próstata", "en": "prostate", "evidence_patterns": ["\\bprostate\\b"]},
+      "modalities": [
+        {"es": "resonancia magnética", "en": "MRI", "evidence_patterns": ["\\b(?:mpMRI|MRI)\\b", "magnetic resonance"]}
+      ]
+    },
+    {
+      "system": "BI-RADS",
+      "document_id": "birads-v2025-review-2026",
+      "source_sha256": "2e8781056328c92d29df55c934574a6191ff9c10644d3b3e91b04d1740301bcc",
+      "xml_sha256": "7e4b15fd6fe6effd09b30f1e6bcdb7f967a83a7454d1617fd23978c824eea907",
+      "source_url": "https://doi.org/10.3390/diagnostics16132135",
+      "organ": {"es": "mama", "en": "breast", "evidence_patterns": ["\\bbreasts?\\b"]},
+      "modalities": [
+        {"es": "mamografía", "en": "mammography", "evidence_patterns": ["\\bmammography\\b"]},
+        {"es": "ecografía", "en": "ultrasonography", "evidence_patterns": ["\\bultrasonography\\b", "\\bultrasound\\b"]},
+        {"es": "resonancia magnética", "en": "MRI", "evidence_patterns": ["\\bMRI\\b", "magnetic resonance"]},
+        {"es": "mamografía con contraste (CEM)", "en": "contrast-enhanced mammography (CEM)", "evidence_patterns": ["\\bCEM\\b", "contrast.enhanced mammography"]}
+      ]
+    }
+  ]
+}

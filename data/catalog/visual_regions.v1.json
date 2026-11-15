@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "coordinate_system": "PDF points, top-left origin: x0, top, x1, bottom",
+  "regions": [
+    {"id":"pi-dwi-table", "document_id":"pirads-2.1-2019", "kind":"table", "page_number":27, "page_label":"20", "bbox":[100,94,552,734], "title":"DWI assessment and caveats", "keywords":"tabla table DWI ADC diffusion difusion puntuacion score criterios criteria notas notes tamano size"},
+    {"id":"pi-sector-map", "document_id":"pirads-2.1-2019", "kind":"labelled_figure", "page_number":38, "page_label":"31", "bbox":[70,80,560,710], "title":"Sector map", "keywords":"mapa sectorial sector map colores colors leyenda legend PZ CZ TZ AFS US periferica transicional central base apex apice uretra"},
+    {"id":"bi-calcification-figure", "document_id":"birads-v2025-review-2026", "kind":"labelled_figure", "page_number":8, "page_label":"8", "bbox":[162,356,553,492], "xml_element_id":"diagnostics-16-02135-f001", "title":"Calcification terminology panels", "keywords":"figura figure 1 calcificaciones calcifications paneles panels flechas arrows layering milk calcium round coarse"},
+    {"id":"bi-lexicon-flow", "document_id":"birads-v2025-review-2026", "kind":"flow_diagram", "page_number":23, "page_label":"23", "bbox":[43,65,552,406], "xml_element_id":"diagnostics-16-02135-f002", "title":"BI-RADS lexicon comparison flow", "keywords":"figura figure 2 flujo flow diagrama diagram flechas arrows columnas columns 2013 2025 forma shape margen margin lobulated microlobulated suspicion bloques orden debajo above below"}
+  ]
+}

@@ -14,13 +14,18 @@
     <a class="brand" href="/" aria-label="Radiology Lab, inicio"><span class="brand-mark">r.</span><span>radiology<span class="brand-light"> / lab</span></span></a>
     <span class="eyebrow sidebar-label">KNOWLEDGE WORKSPACE</span>
     <button id="new-chat" class="new-chat" type="button"><span>＋</span> Nueva conversación</button>
-    <div class="document-card"><span class="document-icon">PDF</span><div><strong>PI-RADS v2.1</strong><span>Manual oficial · 2019</span></div><span class="document-dot" title="Índice disponible"></span></div>
-    <a class="document-link" href="/document.pdf" target="_blank" rel="noopener">Abrir el manual <span>↗</span></a>
+    <a class="subtle-button" href="/lab">Laboratorio de evaluación ↗</a>
+    <div class="document-card"><span class="document-icon">PDF</span><div><strong>Biblioteca RADS</strong><span id="library-summary">Comprobando documentos…</span></div><span class="document-dot" title="Índice disponible"></span></div>
+    <div id="document-links"></div>
     <div class="settings">
-      <label for="mode">Modo</label><select id="mode"><option value="chat">Chat con respuestas</option><option value="search">Sólo buscar fragmentos</option></select>
-      <label for="model">Modelo de respuesta <span class="cloud-label">GEN</span></label><select id="model" aria-describedby="provider-message"><option value="">Comprobando modelos…</option></select>
+      <label for="system">Fuentes de consulta</label><select id="system"><option value="all">Todas las fuentes</option></select>
+      <label for="mode">Modo</label><select id="mode"><option value="chat">Chat · selección automática</option><option value="search">Sólo buscar fragmentos</option></select>
+      <label for="visual-asset" hidden>Figura o tabla</label><select id="visual-asset" hidden><option value="">Selección automática</option></select>
+      <p id="visual-info" class="settings-note" hidden></p>
+      <label for="model">Generador común <span class="cloud-label">GEN</span></label><select id="model" aria-describedby="provider-message"><option value="">Comprobando modelos…</option></select>
       <label for="encoder">Modelo de embeddings</label><select id="encoder"><option value="e5-base">E5 multilingual base</option><option value="qwen3-0.6b" selected>Qwen3 Embedding 0.6B</option></select>
-      <label for="collection">Segmentación del manual</label><select id="collection"><option value="fixed_512_15">512 tokens · overlap 15 %</option><option value="structural_512">Estructural · padres e hijos</option></select>
+      <label for="collection">Segmentación</label><select id="collection"><option value="fixed_512_15">512 tokens · overlap 15 %</option><option value="structural_512" selected>Estructural · secciones y tablas</option></select>
+      <label for="reranker">Reordenar fuentes</label><select id="reranker"><option value="none">Sin reranking</option></select>
       <p class="settings-note">Los cambios se aplican a la próxima pregunta.</p>
     </div>
     <div class="sidebar-bottom"><span class="runtime-dot"></span><span>Embeddings locales · CUDA</span><p>Laboratorio educativo<br>Texto y referencias del manual</p></div>
@@ -32,21 +37,21 @@
         <div id="welcome" class="welcome">
           <div class="hero-mark" aria-hidden="true"><span>r.</span><i></i></div>
           <span class="eyebrow">TU BIBLIOTECA, EN CONVERSACIÓN</span>
-          <h1>El manual,<br>a una pregunta.</h1>
-          <p>Explora PI-RADS v2.1 con respuestas vinculadas<br class="desktop-break"> a sus páginas y fragmentos originales.</p>
+          <h1>Tu biblioteca,<br>a una pregunta.</h1>
+          <p>Consulta PI-RADS y BI-RADS con referencias<br class="desktop-break"> a los documentos originales.</p>
           <div class="suggestions" aria-label="Preguntas sugeridas">
             <button type="button" data-question="¿Dónde explica el manual cómo elegir la lesión índice cuando hay varias lesiones?"><span class="suggestion-icon">↗</span><strong>Lesión índice</strong><span>Consultar los criterios de selección</span></button>
-            <button type="button" data-question="¿Cómo recomienda PI-RADS medir las lesiones y qué dimensión debe registrarse?"><span class="suggestion-icon">↗</span><strong>Medición de lesiones</strong><span>Revisar las indicaciones del manual</span></button>
-            <button type="button" data-question="¿Qué función tiene el contraste dinámico DCE en PI-RADS v2.1?"><span class="suggestion-icon">↗</span><strong>Secuencia DCE</strong><span>Entender su papel en PI-RADS</span></button>
+            <button type="button" data-question="¿De qué color aparece PZ en la leyenda del mapa sectorial de PI-RADS?"><span class="suggestion-icon">↗</span><strong>Leer el mapa sectorial</strong><span>Consultar texto e imagen original</span></button>
+            <button type="button" data-question="¿Qué cambios describe la revisión de 2026 en el léxico de ecografía de BI-RADS v2025?"><span class="suggestion-icon">↗</span><strong>BI-RADS v2025</strong><span>Consultar la revisión de 2026</span></button>
           </div>
         </div>
         <div id="messages" class="messages" role="log" aria-live="polite" aria-relevant="additions"></div>
         <div class="composer-area">
           <p id="provider-message" class="provider-message" role="status"></p>
           <form id="chat-form" class="composer">
-            <label class="sr-only" for="question">Tu pregunta sobre PI-RADS</label>
-            <textarea id="question" rows="2" maxlength="1600" placeholder="Pregunta sobre el manual de PI-RADS…" required></textarea>
-            <div class="composer-bottom"><span id="composer-hint">PI-RADS v2.1 <span>·</span> 4 fragmentos por consulta</span><button id="send" type="submit" disabled>Enviar <span aria-hidden="true">↗</span></button></div>
+            <label class="sr-only" for="question">Tu pregunta sobre documentación RADS</label>
+            <textarea id="question" rows="2" maxlength="1600" placeholder="Pregunta sobre PI-RADS o BI-RADS…" required></textarea>
+            <div class="composer-bottom"><span id="composer-hint">Hasta 4 fragmentos por consulta</span><button id="send" type="submit" disabled>Enviar <span aria-hidden="true">↗</span></button></div>
           </form>
           <p id="cloud-note" class="privacy-note">El modo de procesamiento se muestra al conectar con el servidor.</p>
         </div>

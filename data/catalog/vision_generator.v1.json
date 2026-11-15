@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "model": "qwen3-vl:2b-instruct-q4_K_M",
+  "ollama_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+  "source": "https://registry.ollama.ai/v2/library/qwen3-vl/manifests/2b-instruct-q4_K_M",
+  "license": "Apache-2.0",
+  "num_ctx": 8192,
+  "num_predict": 384,
+  "max_image_edge": 1008,
+  "max_images": 1,
+  "max_text_characters": 6000,
+  "tokenizer": {
+    "repository": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "path": "data/raw/models/qwen3-vl-2b-tokenizer-89644892",
+    "files": [
+      {
+        "path": "tokenizer.json",
+        "sha256": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+        "bytes": 7032403
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+        "bytes": 10868
+      }
+    ]
+  },
+  "image_token_reserve": 2048,
+  "template_token_margin": 256
+}

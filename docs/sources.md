@@ -21,12 +21,11 @@ las 76 páginas del PDF aportado y se ejecutó la extracción local; la revisió
 de las relaciones tabulares sigue pendiente.
 
 Los [términos de ACR](https://www.acr.org/Legal) imponen condiciones de copia.
-Inicialmente el usuario indicó que no constaba autorización y se trabajó con ESUR-2012.
-El 2026-11-13 aportó el manual y confirmó que su incorporación y procesamiento estaban
-cubiertos. Se registró esa declaración en el catálogo y manifiesto local; el documento
-no se reclasifica como licencia abierta. `auto_download=false` se mantiene: la entrada
-se incorporó desde un archivo local, sin una nueva descarga. El formulario oficial de [solicitud de permiso](https://form.jotform.us/71095935087162)
-está disponible para tramitarlo personalmente. No se ha enviado ninguna solicitud.
+La incorporación requiere una copia autorizada para procesamiento local; el manual
+no se considera de licencia abierta. `auto_download=false` impide su descarga
+automática. Los originales y los registros locales de autorización quedan fuera
+de Git. Está disponible el formulario oficial de
+[solicitud de permiso](https://form.jotform.us/71095935087162).
 
 ## Fuente abierta histórica
 
@@ -40,7 +39,7 @@ declara Creative Commons Attribution Noncommercial: permite el uso no comercial 
 atribución. Se conserva el PDF original, sin alterar sus avisos, y su manifiesto local.
 El catálogo enlaza la declaración exacta en lugar de adivinar una versión de licencia.
 El notebook muestra la atribución junto a la exploración. El editor devolvió HTML en
-lugar del PDF en esta máquina. Se obtuvo el archivo de **PMC3297750.1**, depósito oficial
+lugar del PDF durante la adquisición. Se obtuvo el archivo de **PMC3297750.1**, depósito oficial
 Open Access de PMC, usando su [servicio Cloud documentado](https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/).
 Los [metadatos oficiales](https://pmc-oa-opendata.s3.amazonaws.com/PMC3297750.1/PMC3297750.1.json)
 confirman DOI, título, `is_manuscript=false`, `is_retracted=false` y `license_code=CC BY-NC`.
@@ -56,11 +55,11 @@ PI-RADS 2.1. El notebook y los registros exportados incluyen versión y papel do
 `PIRADS-2019.pdf` se copió conservando el original a
 `data/raw/pirads-2.1-2019/manual.pdf`. El manifiesto `.source.json` registra
 `acquisition_method=user_provided_local_file`, fecha UTC, nombre aportado,
-versión 2.1, 76 páginas, 3,019,107 bytes y la cobertura declarada por el usuario.
+versión 2.1, 76 páginas, 3,019,107 bytes y la base de uso registrada localmente.
 SHA-256: `594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2`.
 
-Ya está incorporado; no es necesario repetir estos comandos. Para reproducir la
-operación sobre una copia del mismo archivo y con la cobertura de uso correspondiente:
+Para reproducir la incorporación sobre una copia del mismo archivo y con la
+cobertura de uso correspondiente:
 
 ```powershell
 uv run radiology-rag import pirads-2.1-2019 .\PIRADS-2019.pdf --authorization-note "Cobertura de uso confirmada para incorporación y procesamiento local"
@@ -96,6 +95,11 @@ histórica; no son necesarios para empezar con v2.1. No se han incorporado autom
    todo. Las páginas y resultados de 2012 no son transferibles al nuevo documento.
 
 ## Catálogo e integridad
+
+BI-RADS se registra como segunda familia documental. Edición oficial v2025 y una
+revisión abierta de 2026 se distinguen por sistema, edición y papel documental.
+El PDF y XML de la revisión están incorporados y procesados en un índice
+estructural. Véanse [fuentes BI-RADS y tratamiento de tablas](birads_sources.md).
 
 `documents.v1.json` guarda versión del esquema y del catálogo, identificador estable,
 responsable, versión documental, URL fuente, URL del archivo, formato, idioma, páginas

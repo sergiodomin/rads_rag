@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "description": "PI development queries and local-text offsets only. No document transcriptions. Extract references from authorized local input.",
+  "source_sha256": "594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2",
+  "cases": [
+    {
+      "id": "patient-information",
+      "questions": {
+        "es": "¿Qué información clínica previa pide PI-RADS para interpretar una RM de próstata?",
+        "en": "What prior clinical information does PI-RADS request for interpreting prostate MRI?"
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "090becb9566828e7965e1d5d936fc916dfd616e4f76ac8cb556dc7156c2413ab",
+          "page_number": 12,
+          "start": 2,
+          "end": 40,
+          "block_text_sha256": "61cddae30ffd3ae625f634c269173bf7d96928cb4586b1ce4e1b294a1a442cf6"
+        }
+      ]
+    },
+    {
+      "id": "post-biopsy-staging",
+      "questions": {
+        "es": "Localiza la discusión sobre el intervalo tras biopsia cuando la RM se utiliza para estadificación.",
+        "en": "Find the discussion of the post-biopsy interval when MRI is used for staging."
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "02ae51d869af4bfed9eee299c084d0c43274ca51fca9681346a1e5c7eb4a8b4d",
+          "page_number": 11,
+          "start": 245,
+          "end": 286,
+          "block_text_sha256": "bba0951d0ff19b65602efc2f4d4de5afb74ae34dc6ee57121df64a29f7ea8844"
+        }
+      ]
+    },
+    {
+      "id": "magnetic-fields",
+      "questions": {
+        "es": "Localiza los pasajes sobre exploraciones a 1,5 y 3 T y la limitación de los campos inferiores a 1,5 T.",
+        "en": "Find the passages about examinations at 1.5 and 3 T and the limitation of fields below 1.5 T."
+      },
+      "type": "multisection",
+      "evidence": [
+        {
+          "block_id": "f5fab0fa4f35789a6c8cfec9ae6ba58976b71fa443bfa4206ee4cd34422e81d9",
+          "page_number": 12,
+          "start": 92,
+          "end": 131,
+          "block_text_sha256": "add7c1c63f66e352b47b69fe52f2646bfd65625e5a20b06c18d32d3471b1996b"
+        },
+        {
+          "block_id": "05126e8d0ed43ee0df4d6b062c780f490be149c560891e850bce66a5d93ecd54",
+          "page_number": 13,
+          "start": 163,
+          "end": 201,
+          "block_text_sha256": "682b08632ed7048946556de945ccc728b53a709e8a83ca645cfca1c136143535"
+        }
+      ]
+    },
+    {
+      "id": "index-lesion",
+      "questions": {
+        "es": "¿Dónde explica el manual cómo elegir la lesión índice cuando hay varias lesiones?",
+        "en": "Where does the manual explain how to choose the index lesion when multiple lesions are present?"
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "6338ca89f7b0a1ff59214ff00af1761f99cee14b4337c1cca97487a02f7face5",
+          "page_number": 19,
+          "start": 210,
+          "end": 282,
+          "block_text_sha256": "86a9e185b324ba2db9497ee08018aca11fefeb0092a09f0bb845c9b49f190077"
+        }
+      ]
+    },
+    {
+      "id": "measurement-sequences",
+      "questions": {
+        "es": "Localiza la indicación de las secuencias para medir lesiones de zona periférica y transicional.",
+        "en": "Find the statement specifying the sequences for measuring peripheral and transition zone lesions."
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "c0f261484247cc1f9a429aec12e25880be17ba53183cbd19472c7a9ecff7ba2a",
+          "page_number": 20,
+          "start": 0,
+          "end": 91,
+          "block_text_sha256": "afb773244f4f1a9d4d81d8cd62510a4244d8db01b437912ba358faac5b63a5f9"
+        }
+      ]
+    },
+    {
+      "id": "dwi-table",
+      "questions": {
+        "es": "¿Dónde aparece la fila de la tabla DWI sobre hiposeñal marcada en ADC y tamaño inferior a 1,5 cm?",
+        "en": "Where is the DWI table row about marked ADC hypointensity and size below 1.5 cm?"
+      },
+      "type": "table",
+      "evidence": [
+        {
+          "block_id": "5365efb24496c721c0ec829e99efc2269cb7870dd7dadd5f03a070fb2c84f57b",
+          "page_number": 27,
+          "start": 611,
+          "end": 643,
+          "block_text_sha256": "88b9915852888711a860f585301954423e87c4a279128461d1d1bd3c1df9440e"
+        },
+        {
+          "block_id": "5365efb24496c721c0ec829e99efc2269cb7870dd7dadd5f03a070fb2c84f57b",
+          "page_number": 27,
+          "start": 691,
+          "end": 719,
+          "block_text_sha256": "88b9915852888711a860f585301954423e87c4a279128461d1d1bd3c1df9440e"
+        }
+      ]
+    },
+    {
+      "id": "dce-positive",
+      "questions": {
+        "es": "Localiza la descripción de un realce DCE positivo y su relación temporal con el tejido normal.",
+        "en": "Find the description of positive DCE enhancement and its timing relative to normal tissue."
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "00d91b8a291494ce31dbd6feb02890c1c07dd72d6cb373a1e5493d028b487d10",
+          "page_number": 29,
+          "start": 66,
+          "end": 118,
+          "block_text_sha256": "bac2ade22a8755e37ce94e9df24fec4236455dbf84e4bf4f543c2b7b2d3403ee"
+        }
+      ]
+    },
+    {
+      "id": "staging-epe",
+      "questions": {
+        "es": "Localiza el apartado sobre la secuencia de alta resolución para valorar extensión extraprostática.",
+        "en": "Find the section on the high-resolution sequence for assessing extraprostatic extension."
+      },
+      "type": "direct",
+      "evidence": [
+        {
+          "block_id": "04591de00130bb2bb0ffcfcbdc6c5d2a555181b8037a6ec05425ad52af7e4d6a",
+          "page_number": 32,
+          "start": 0,
+          "end": 47,
+          "block_text_sha256": "ee3477e3abc443e2d14d683076de782613aec49b84e1da3225658d1b2dfc8433"
+        }
+      ]
+    },
+    {
+      "id": "central-zone-lexicon",
+      "questions": {
+        "es": "Localiza la definición de zona central del léxico y su relación con los conductos eyaculadores.",
+        "en": "Find the lexicon definition of the central zone and its relationship to the ejaculatory ducts."
+      },
+      "type": "lexicon",
+      "evidence": [
+        {
+          "block_id": "a8306323ca7bd9e20ff11279c7593e1f372916e558782d57e4a4604948e9c40e",
+          "page_number": 43,
+          "start": 13,
+          "end": 76,
+          "block_text_sha256": "fb6009be4a4cf96c2122201760e5bb36bdfade6e79d9f6f6b26dc151338a72cd"
+        }
+      ]
+    },
+    {
+      "id": "nvb-lexicon",
+      "questions": {
+        "es": "Localiza la definición del haz neurovascular y su posición en reloj en las imágenes de RM.",
+        "en": "Find the neurovascular bundle definition and its clock-face position on MR images."
+      },
+      "type": "lexicon",
+      "evidence": [
+        {
+          "block_id": "a8306323ca7bd9e20ff11279c7593e1f372916e558782d57e4a4604948e9c40e",
+          "page_number": 43,
+          "start": 2651,
+          "end": 2698,
+          "block_text_sha256": "fb6009be4a4cf96c2122201760e5bb36bdfade6e79d9f6f6b26dc151338a72cd"
+        },
+        {
+          "block_id": "a8306323ca7bd9e20ff11279c7593e1f372916e558782d57e4a4604948e9c40e",
+          "page_number": 43,
+          "start": 2714,
+          "end": 2749,
+          "block_text_sha256": "fb6009be4a4cf96c2122201760e5bb36bdfade6e79d9f6f6b26dc151338a72cd"
+        }
+      ]
+    },
+    {
+      "id": "sector-map-color",
+      "questions": {
+        "es": "En el mapa sectorial de la página impresa 31, ¿qué color marca la zona periférica?",
+        "en": "In the sector map on printed page 31, which color marks the peripheral zone?"
+      },
+      "type": "image_unavailable",
+      "evidence": []
+    }
+  ]
+}

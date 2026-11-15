@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Radiology Lab · Evaluación</title><link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/lab.css"><script src="/lab.js" defer></script>
+</head>
+<body>
+<header><a href="/">r. radiology / lab</a><nav><a href="/">Consulta</a><a href="/lab" aria-current="page">Evaluación</a></nav><span>LOCAL</span></header>
+<main>
+  <div class="heading"><div><p class="eyebrow">EXPERIMENTOS REPRODUCIBLES</p><h1>¿Dónde falla la respuesta?</h1><p>Separa evidencia, recuperación y generación. Inspecciona cada paso antes de comparar métodos.</p></div><span id="dataset-count" class="badge">Cargando…</span></div>
+  <p class="notice">Referencias iniciales en borrador. Recall y citas válidas no demuestran exactitud ni fidelidad clínica. La revisión humana se registra por separado.</p>
+  <p id="message" role="status" aria-live="polite"></p>
+  <div class="setup">
+    <section class="card"><h2>1. Casos y referencias</h2>
+      <div class="filters"><label>Partición<select id="split"><option value="dev">Desarrollo</option><option value="test">Test reservado</option></select></label><label>Idioma<select id="language"><option value="es">Español</option><option value="en">English</option><option value="all">Ambos</option></select></label></div>
+      <p id="split-note" class="muted"></p><button id="select-visible" class="secondary" type="button">Seleccionar visibles</button> <button id="clear-selection" class="secondary" type="button">Limpiar selección</button>
+      <div id="cases" class="case-list"></div><p id="selection-count" class="muted"></p>
+      <details id="reference-panel"><summary>Inspeccionar y revisar referencia</summary><h3 id="case-title"></h3><pre id="case-history"></pre><div id="case-evidence"></div><label>Respuesta de referencia<textarea id="reference-answer" rows="6"></textarea></label><label>Notas de revisión<textarea id="reference-notes" rows="2"></textarea></label><label class="check"><input id="reference-reviewed" type="checkbox"> He revisado la respuesta, las anclas y su suficiencia documental</label><button id="save-reference" class="secondary" type="button">Guardar revisión</button></details>
+    </section>
+    <section class="card"><h2>2. Configuración</h2>
+      <div class="filters"><label>Recuperador<select id="retriever"><option value="hybrid">Híbrido · RRF y reglas</option><option value="dense">Sólo denso · coseno</option><option value="bm25">Sólo léxico · BM25</option></select></label><label>Embeddings<select id="encoder"></select></label></div>
+      <label>Segmentación<select id="collection"><option value="structural_512">Estructural · secciones y tablas</option><option value="fixed_512_15">Fija · sólo PI-RADS</option></select></label>
+      <div class="filters"><label>Reranker<select id="reranker"><option value="none">Sin reranking · baseline</option></select></label><label>Candidatos máximos<select id="candidate-count"><option value="20">20</option><option value="40">40</option></select></label></div>
+      <label>Cuerpo del contexto<select id="context-policy"><option value="parent">Padre completo · comportamiento actual</option><option value="chunk">Pasaje indexado · conserva metadatos</option></select></label>
+      <p class="muted">Mismos candidatos y hasta cuatro fuentes finales en A/B. Cambia una opción por experimento. Las comparaciones conservan plazas para ambos sistemas.</p>
+      <fieldset><legend>Condiciones</legend>
+        <label class="check"><input name="condition" value="retrieval_only" type="checkbox" checked> Sólo recuperación · sin LLM</label>
+        <label class="check"><input name="condition" value="no_context" type="checkbox"> Sin contexto · conocimiento previo</label>
+        <label class="check"><input name="condition" value="reference_context" type="checkbox"> Contexto de referencia · omite el recuperador</label>
+        <label class="check"><input name="condition" value="retrieved_context" type="checkbox"> Contexto recuperado · generación libre</label>
+        <label class="check"><input name="condition" value="product" type="checkbox"> Baseline textual · incluye campos de alcance verificados</label>
+      </fieldset>
+      <fieldset><legend>Generadores registrados</legend><div id="models"></div><p class="muted">Cada perfil necesita su tokenizer y digest. No se descargan modelos. Se ejecutan de uno en uno; máximo 12 llamadas por lote.</p></fieldset>
+      <div class="filters"><label>Temperatura<input id="temperature" type="number" value="0" min="0" max="1" step="0.1"></label><label>Máximo de tokens de salida<input id="output-tokens" type="number" value="512" min="64" max="512"></label></div>
+      <p id="call-count" class="muted"></p><button id="start" type="button">Ejecutar lote</button> <button id="cancel" class="secondary" type="button" disabled>Detener tras la tarea actual</button><p id="progress" role="status"></p>
+    </section>
+  </div>
+  <section class="card results"><h2>3. Resultados y revisión</h2><p class="muted">Selecciona dos ejecuciones para contrastar sus resultados. Los IDs R son evidencia de referencia; los S son contexto del modelo. La revisión por afirmación corresponde a la salida bruta.</p>
+    <div class="filters"><label>Ejecución A<select id="run-a"><option value="">Ninguna</option></select></label><label>Ejecución B<select id="run-b"><option value="">Ninguna</option></select></label></div>
+    <div id="results" class="comparison"></div>
+  </section>
+</main>
+</body></html>

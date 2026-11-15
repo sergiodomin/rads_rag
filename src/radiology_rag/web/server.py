@@ -9,14 +9,20 @@ from urllib.parse import urlsplit
 
 from radiology_rag.chat import BusyError, ChatEngine
 from radiology_rag.config import Settings
+from radiology_rag.evaluation.lab import EvaluationLab
 from radiology_rag.generation.local_runtime import ensure_local_runtime
 from radiology_rag.generation.ollama import OllamaError
+from radiology_rag.generation.vision import VisualRAG
 from radiology_rag.paths import within
+from radiology_rag.routing import UnifiedChat
 
 ASSETS = Path(__file__).parent / "static"
 
 
-def build_server(engine, port=8765):
+def build_server(engine, port=8765, lab=None):
+    lab = lab or EvaluationLab(engine)
+    visual = VisualRAG(engine)
+    chat = UnifiedChat(engine, visual)
     class Handler(BaseHTTPRequestHandler):
         server_version = "RadiologyLab"
 
@@ -59,13 +65,44 @@ def build_server(engine, port=8765):
                     return
                 path = urlsplit(self.path).path
                 if path == "/api/status":
-                    self._json(200, engine.status())
+                    common = (visual.spec()["model"] if (engine.root /
+                              "data/catalog/vision_generator.v1.json").exists() else None)
+                    self._json(200, {**engine.status(), "visual": visual.metadata(),
+                                     "common_generator": common})
+                    return
+                if path == "/api/visual":
+                    self._json(200, visual.metadata())
+                    return
+                if path.startswith("/visual/") and path.endswith(".png"):
+                    relative = path.removeprefix("/visual/")
+                    full_page = relative.endswith("/page.png")
+                    identifier = (relative.removesuffix("/page.png") if full_page
+                                  else relative.removesuffix(".png"))
+                    file = visual.image_path(identifier, full_page=full_page)
+                    self._headers(200, "image/png", file.stat().st_size)
+                    with file.open("rb") as stream:
+                        shutil.copyfileobj(stream, self.wfile)
+                    return
+                lab_routes = {"/api/lab": lab.metadata, "/api/lab/state": lab.state,
+                              "/api/lab/runs": lab.list_runs}
+                if path in lab_routes:
+                    self._json(200, lab_routes[path]())
+                    return
+                if path.startswith("/api/lab/runs/"):
+                    self._json(200, lab.read_run(path.removeprefix("/api/lab/runs/")))
                     return
                 files = {"/": (ASSETS / "index.html", "text/html; charset=utf-8"),
+                         "/lab": (ASSETS / "lab.html", "text/html; charset=utf-8"),
+                         "/lab.js": (ASSETS / "lab.js", "text/javascript; charset=utf-8"),
+                         "/lab.css": (ASSETS / "lab.css", "text/css; charset=utf-8"),
                          "/app.css": (ASSETS / "app.css", "text/css; charset=utf-8"),
                          "/app.js": (ASSETS / "app.js", "text/javascript; charset=utf-8"),
                          "/document.pdf": (within(engine.root, engine.document["local_path"]),
                                             "application/pdf")}
+                for identifier, document in getattr(engine, "documents", {}).items():
+                    files[f"/documents/{identifier}.pdf"] = (
+                        within(engine.root, document["local_path"]), "application/pdf"
+                    )
                 if path not in files:
                     self._json(404, {"error": "Ruta no encontrada."})
                     return
@@ -75,6 +112,10 @@ def build_server(engine, port=8765):
                     shutil.copyfileobj(stream, self.wfile)
             except (BrokenPipeError, ConnectionResetError):
                 pass
+            except ValueError as error:
+                self._json(400, {"error": str(error)})
+            except FileNotFoundError:
+                self._json(404, {"error": "Recurso local no encontrado."})
 
         def do_POST(self):
             try:
@@ -89,14 +130,23 @@ def build_server(engine, port=8765):
                 if not self._allowed():
                     return
                 path = urlsplit(self.path).path
-                if path not in {"/api/chat", "/api/search"}:
+                lab_actions = {"/api/lab/start": lab.start,
+                               "/api/lab/cancel": lambda _: lab.cancel(),
+                               "/api/lab/reference-review": lab.review_case,
+                               "/api/lab/result-review": lab.review_record}
+                if path not in {"/api/chat", "/api/search", "/api/visual/chat", *lab_actions}:
                     self._json(404, {"error": "Ruta no encontrada."})
                     return
                 if self.headers.get_content_type() != "application/json":
                     self._json(415, {"error": "Se requiere application/json."})
                     return
                 payload = json.loads(raw.decode("utf-8"))
-                result = engine.respond(payload, search_only=path == "/api/search")
+                if not isinstance(payload, dict):
+                    raise ValueError("Se requiere un objeto JSON.")
+                result = (visual.respond(payload) if path == "/api/visual/chat" else
+                          lab_actions[path](payload) if path in lab_actions
+                          else engine.respond(payload, search_only=True) if path == "/api/search"
+                          else chat.respond(payload))
                 self._json(200, result)
             except (BrokenPipeError, ConnectionResetError):
                 pass

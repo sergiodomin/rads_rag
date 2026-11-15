@@ -1,7 +1,9 @@
 "use strict";
 const $ = id => document.getElementById(id);
-const state = {history: [], busy: false, ready: false, sources: [], cited: [], local: false};
-const phases = {loading_encoder: "Preparando el modelo local…", retrieving: "Buscando en el manual…", generating: "Redactando con las fuentes…"};
+const state = {commonGenerator: null, history: [], visualContext: "", busy: false, ready: false, sources: [], cited: [], local: false, visual: {assets: []}};
+const phases = {loading_encoder: "Preparando el modelo local…", retrieving: "Buscando en los documentos…", reranking: "Seleccionando las fuentes con el reranker…", generating: "Redactando con las fuentes…"};
+phases.visual_retrieving = "Buscando una figura o tabla…";
+phases.visual_generating = "Analizando el contexto con el modelo común…";
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -36,14 +38,42 @@ function showSources(sources, cited = [], selected = null) {
     const labels = element("div", "source-labels");
     labels.append(element("span", "source-id", source.id));
     if (cited.includes(source.id)) labels.append(element("span", "cited-tag", "CITADA"));
-    summary.append(labels, element("strong", "", `PI-RADS v2.1 · p. ${source.printed_pages.join(", ")}`));
-    summary.append(element("span", "source-meta", `Página física del PDF: ${source.pages.join(", ")} · score ${source.score.toFixed(3)}`));
+    if (source.exact_category_match) labels.append(element("span", "cited-tag", `Categoría ${source.assessment_categories.join(", ")}`));
+    summary.append(labels, element("strong", "", source.document));
+    const location = source.pages.length ? `Página física: ${source.pages.join(", ")}`
+      : `${(source.sections || []).map(s => s.join(" > ")).join("; ")} · ${source.xml_element_id || ""}${source.table_row ? ` · fila ${source.table_row}` : ""}`;
+    const role = source.document_role === "secondary_narrative_review" ? "Revisión secundaria" : "Manual";
+    const cosine = Number.isFinite(source.score) ? ` · coseno ${source.score.toFixed(3)}` : "";
+    const ranking = source.image_url ? " · evidencia visual" : Number.isFinite(source.rerank_score) ? ` · reranker ${source.rerank_score.toFixed(3)}` : " · orden híbrido";
+    summary.append(element("span", "source-meta", `${source.system} · ${source.document_version || ""} · ${role} · ${location}${cosine}${ranking}`));
     summary.append(element("p", "source-preview", source.text.slice(0, 150).replace(/\s+/g, " ") + "…"));
-    const link = element("a", "source-pdf", "Abrir página en el PDF ↗");
+    const link = element("a", "source-pdf", source.pages.length ? "Abrir página en el PDF ↗" : "Abrir publicación original ↗");
     link.href = source.pdf_url;
     link.target = "_blank";
     link.rel = "noopener";
-    card.append(summary, element("p", "source-text", source.text), link);
+    card.append(summary);
+    if (source.image_url) {
+      const open = element("a", "source-image-link"); open.href = source.image_url; open.target = "_blank"; open.rel = "noopener";
+      const image = element("img", "source-image"); image.src = source.image_url; image.alt = source.title || "Recorte del documento"; image.loading = "lazy";
+      open.append(image); card.append(open, element("p", "source-meta", `Recorte original · página ${source.pages[0]} · bbox ${source.bbox.join(", ")}. Abrir imagen para ampliar.`));
+      if (source.page_image_url) {
+        const context = element("details", "page-context"); context.append(element("summary", "Ver región en la página completa"));
+        const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg");
+        const [width, height] = source.page_size_points;
+        svg.setAttribute("viewBox", `0 0 ${width} ${height}`); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Página original con la región consultada resaltada");
+        const page = document.createElementNS(ns, "image"); page.setAttribute("href", source.page_image_url); page.setAttribute("width", width); page.setAttribute("height", height); svg.append(page);
+        const [left, top, right, bottom] = source.bbox, box = document.createElementNS(ns, "rect");
+        for (const [key, value] of Object.entries({x: left, y: top, width: right-left, height: bottom-top, fill: "none", stroke: "#0086c9", "stroke-width": 3})) box.setAttribute(key, value);
+        svg.append(box); context.append(svg); card.append(context);
+      }
+      card.open = true;
+    }
+    if (source.table_headers?.length && source.table_headers.length === source.table_cells?.length) {
+      const table = element("table", "source-table"), body = element("tbody");
+      source.table_headers.forEach((header, i) => { const row = element("tr"); row.append(element("th", "", header), element("td", "", source.table_cells[i])); body.append(row); });
+      table.append(body); card.append(table);
+    }
+    card.append(element("p", "source-text", source.text), link);
     $("sources-list").append(card);
     if (source.id === selected) {
       card.open = true;
@@ -102,11 +132,17 @@ function recentHistory() {
 
 function updateMode() {
   const search = $("mode").value === "search";
-  $("model").disabled = search || state.busy;
-  $("cloud-note").textContent = search
-    ? "La búsqueda y los embeddings se ejecutan localmente. Este modo no llama al generador Cloud."
-    : state.local ? "Todo se procesa en este equipo: embeddings y respuesta en la RTX. Sin llamadas Cloud ni coste por tokens."
-    : "Al enviar, Ollama Cloud recibe la pregunta, el historial reciente y los fragmentos recuperados. La clave permanece en el servidor local.";
+  for (const id of ["model", "encoder", "collection", "reranker"]) {
+    $(id).hidden = false;
+    document.querySelector(`label[for="${id}"]`).hidden = false;
+  }
+  $("visual-asset").hidden = true;
+  document.querySelector('label[for="visual-asset"]').hidden = true;
+  $("visual-info").hidden = search;
+  $("visual-info").textContent = "El chat combina textos, tablas y figuras recuperadas con un generador común.";
+  $("model").disabled = search || state.busy || Boolean(state.commonGenerator);
+  $("cloud-note").textContent = search ? "Búsqueda local de fragmentos; sin generación."
+    : "El chat selecciona la evidencia y envía al mismo modelo el texto y las imágenes pertinentes.";
   $("send").disabled = state.busy || !state.ready || (!search && !$("model").value);
 }
 
@@ -116,7 +152,7 @@ async function sendQuestion(event) {
   if (!question || state.busy) return;
   state.busy = true;
   updateMode();
-  ["encoder", "collection", "mode", "new-chat"].forEach(id => { $(id).disabled = true; });
+  ["encoder", "collection", "reranker", "visual-asset", "system", "mode", "new-chat"].forEach(id => { $(id).disabled = true; });
   $("welcome").hidden = true;
   const user = element("article", "turn user-turn");
   user.append(element("div", "user-bubble", question));
@@ -136,21 +172,40 @@ async function sendQuestion(event) {
     const search = $("mode").value === "search";
     const data = await api(search ? "/api/search" : "/api/chat", {
       message: question, history: recentHistory(), encoder: $("encoder").value,
-      collection: $("collection").value, model: $("model").value
+      collection: $("collection").value, model: $("model").value, system: $("system").value,
+      reranker: $("reranker").value, visual_asset: $("visual-asset").value,
+      visual_context: state.visualContext
     });
     pending.remove();
     if (search) {
-      data.answer = "He recuperado cuatro fragmentos del manual. Puedes abrirlos en el panel de fuentes y consultar sus páginas originales.";
+      data.answer = `He recuperado ${data.sources.length} fragmentos. Puedes consultar sus documentos y ubicaciones en el panel de fuentes.`;
       data.cited_sources = [];
     }
     const body = element("div", "answer-body");
     renderAnswer(body, data); turn.append(body);
     const footer = element("div", "answer-footer");
-    const seconds = data.metrics.retrieval_seconds + (data.metrics.latency_seconds || 0);
+    const seconds = data.metrics.total_seconds ?? data.metrics.retrieval_seconds + (data.metrics.latency_seconds || 0);
     footer.append(element("span", "", search ? "Búsqueda local · sin generación" : data.metrics.model));
     footer.append(element("span", "", `${seconds.toFixed(1)} s · ${data.sources.length} fuentes`));
-    if (data.abstained) footer.append(element("span", "badge", "Evidencia insuficiente"));
+    if (data.metrics.reranking?.pairs) footer.append(element("span", "badge", `Reranking · ${data.metrics.reranking.pairs} candidatos`));
+    if (data.metrics.images_sent > 0) footer.append(element("span", "badge", "Lectura visual · sin revisión experta"));
+    if (data.routing) footer.append(element("span", "badge", ({text: "Evidencia textual y tablas", image: "Imagen seleccionada automáticamente", combined: "Imagen y texto asociado", clarification: "Falta evidencia visual"})[data.routing.modality]));
+    if (data.sources.some(source => source.kind === "flow_diagram")) footer.append(element("span", "badge", "Diagrama: comprobar flechas y columnas en el original"));
+    if (data.abstained) {
+      const labels = {
+        insufficient_evidence: "Evidencia insuficiente",
+        invalid_or_missing_citations: "Respuesta descartada: citas no válidas",
+        unsupported_anatomical_term: "Respuesta descartada: órgano sin respaldo",
+        missing_comparison_sources: "Faltan citas de ambos sistemas",
+        unverified_scope_fields: "Faltan campos de alcance verificados"
+      };
+      footer.append(element("span", "badge", labels[data.abstention_reason] || "Evidencia insuficiente"));
+    }
     if (data.truncated) footer.append(element("span", "badge", "Salida recortada por el límite de generación"));
+    if (data.answer_mode === "verified_scope_fields") footer.append(element("span", "badge", "Comparación estructurada de fuentes"));
+    if (data.metrics.query_corrections?.length) {
+      footer.append(element("span", "badge", `Consulta interpretada: ${data.metrics.normalized_question}`));
+    }
     const show = element("button", "", "Ver fuentes ↗");
     show.type = "button";
     show.addEventListener("click", () => showSources(data.sources, data.cited_sources));
@@ -160,7 +215,7 @@ async function sendQuestion(event) {
       catch { copy.textContent = "No se pudo copiar"; }
     });
     footer.append(show, copy); turn.append(footer);
-    if (!search) state.history.push({role: "user", content: question}, {role: "assistant", content: data.answer});
+    if (!search) { state.history.push({role: "user", content: question}, {role: "assistant", content: data.answer}); state.visualContext = data.routing?.context || ""; }
     showSources(data.sources, data.cited_sources);
   } catch (error) {
     pending.remove(); turn.append(element("p", "error-text", error.message));
@@ -173,7 +228,7 @@ async function sendQuestion(event) {
     turn.append(edit);
   } finally {
     clearInterval(poll); state.busy = false;
-    ["encoder", "collection", "mode", "new-chat"].forEach(id => { $(id).disabled = false; });
+    ["encoder", "collection", "reranker", "visual-asset", "system", "mode", "new-chat"].forEach(id => { $(id).disabled = false; });
     updateMode(); $("question").focus();
   }
 }
@@ -184,12 +239,29 @@ $("question").addEventListener("keydown", event => {
     event.preventDefault(); if (!$("send").disabled) $("chat-form").requestSubmit();
   }
 });
-$("mode").addEventListener("change", updateMode);
+$("mode").addEventListener("change", () => { state.history = []; state.visualContext = ""; updateMode(); });
 $("model").addEventListener("change", updateMode);
+let documents = [];
+function updateVisualAssets() {
+  const previous = $("visual-asset").value;
+  $("visual-asset").replaceChildren(new Option("Selección automática", ""));
+  for (const asset of state.visual.assets || []) if ($("system").value === "all" || asset.system === $("system").value) {
+    $("visual-asset").add(new Option(`${asset.system} · ${asset.title} · p. ${asset.page_number}`, asset.id));
+  }
+  $("visual-asset").value = [...$("visual-asset").options].some(o => o.value === previous) ? previous : "";
+}
+function updateCollections() {
+  const selected = documents.filter(d => $("system").value === "all" || d.system === $("system").value);
+  for (const option of $("collection").options) {
+    option.disabled = !selected.every(d => d.collections.includes(option.value));
+  }
+  if ($("collection").selectedOptions[0].disabled) $("collection").value = "structural_512";
+}
+$("system").addEventListener("change", () => { state.history = []; state.visualContext = ""; updateCollections(); updateVisualAssets(); });
 $("toggle-sources").addEventListener("click", () => toggleSources($("sources-panel").hidden));
 $("close-sources").addEventListener("click", () => toggleSources(false));
 $("new-chat").addEventListener("click", () => {
-  state.history = []; state.sources = []; state.cited = [];
+  state.history = []; state.visualContext = ""; state.sources = []; state.cited = [];
   $("messages").replaceChildren(); $("sources-list").replaceChildren();
   $("source-count").textContent = "0"; $("welcome").hidden = false;
   $("question").value = ""; toggleSources(false); $("question").focus();
@@ -201,6 +273,26 @@ document.querySelectorAll("[data-question]").forEach(button => button.addEventLi
 async function initialize() {
   try {
     const status = await api("/api/status");
+    documents = status.documents;
+    state.visual = status.visual || {assets: []};
+    state.commonGenerator = status.common_generator || null;
+    $("library-summary").textContent = `${documents.length} documentos · versiones identificadas`;
+    for (const system of new Set(documents.map(d => d.system))) {
+      const option = element("option", "", system); option.value = system; $("system").append(option);
+    }
+    $("document-links").replaceChildren();
+    for (const doc of documents) {
+      const label = doc.role === "secondary_narrative_review" ? "revisión 2026" : "manual";
+      const link = element("a", "document-link", `${doc.system} · ${label} ↗`);
+      link.href = `/documents/${doc.id}.pdf`; link.target = "_blank"; link.rel = "noopener";
+      $("document-links").append(link);
+    }
+    updateCollections();
+    updateVisualAssets();
+    for (const reranker of status.rerankers || []) {
+      const option = element("option", "", reranker.id); option.value = reranker.id; $("reranker").append(option);
+    }
+    $("reranker").value = status.chat_retrieval?.reranker || "none";
     state.local = status.provider_kind === "local";
     document.querySelector("label[for=model] .cloud-label").textContent = state.local ? "LOCAL" : "CLOUD";
     $("model").replaceChildren();
@@ -210,7 +302,9 @@ async function initialize() {
     if (status.models.includes(status.model)) $("model").value = status.model;
     else if (status.models.length) $("model").value = "";
     else { const option = element("option", "", "Configura Ollama en .env"); option.value = ""; $("model").append(option); }
-    if (!status.generation_ready) $("mode").value = "search";
+    if (state.commonGenerator) {
+      $("model").replaceChildren(new Option(state.commonGenerator, state.commonGenerator));
+    } else if (!status.generation_ready) $("mode").value = "search";
     $("provider-message").textContent = status.provider_error || "";
     $("connection").textContent = "Índice disponible";
     state.ready = true; updateMode();

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "generators": [
+    {
+      "profile": "data/catalog/local_generator.v1.json",
+      "budget_format": "qwen3_chatml"
+    }
+  ]
+}

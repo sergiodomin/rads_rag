@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "reranker": "qwen3-reranker-0.6b",
+  "candidate_count": 20,
+  "context_policy": "parent"
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "catalog_version": "2026-11-13.1",
+  "catalog_version": "2026-11-15.1",
   "verified_on": "2026-11-11",
-  "scope": "PI-RADS: manual actual y antecedentes. Nunca mezclar versiones como evidencia equivalente.",
+  "scope": "Radiology reporting systems: separate system, edition, document role and publication date.",
   "documents": [
     {
       "id": "pirads-2.1-2019",
@@ -36,11 +36,11 @@
         "redistribute": false,
         "evidence_url": "https://www.acr.org/Legal",
         "permission_url": "https://form.jotform.us/71095935087162",
-        "note": "Archivo aportado por el usuario; cobertura de uso confirmada para el laboratorio. Conservar avisos y procedencia.",
+        "note": "Copia local incorporada para el laboratorio. Conservar avisos y procedencia; no redistribuir.",
         "usage_authorization": {
           "basis": "user_confirmed",
           "confirmed_on": "2026-11-13",
-          "note": "El usuario confirmó que el uso del PDF aportado está cubierto y autorizó su incorporación y procesamiento en el laboratorio."
+          "note": "Registro de autorización para procesamiento local; la publicación del catálogo no concede derechos sobre el PDF."
         }
       },
       "expected_sha256": "594e618213e76205a5a91ca3df488274b0f6f42325b173581577da556cf2b4f2",
@@ -49,7 +49,8 @@
         "reference_path": "data/evaluations/pirads-2.1-2019-parsing-regions.v1.json",
         "sample_region_id": "p011-body",
         "inspection_group_id": "t2w-assessment"
-      }
+      },
+      "system": "PI-RADS"
     },
     {
       "id": "pirads-2.0-2015",
@@ -82,7 +83,8 @@
         "evidence_url": "https://www.acr.org/Legal",
         "permission_url": "https://form.jotform.us/71095935087162",
         "note": "Archivo histórico; no incorporado para evitar mezclar versiones en el baseline."
-      }
+      },
+      "system": "PI-RADS"
     },
     {
       "id": "esur-2012",
@@ -125,7 +127,8 @@
         "reference_path": "data/evaluations/parsing_regions.v1.json",
         "sample_region_id": "p07-equipment",
         "inspection_group_id": "table-3"
-      }
+      },
+      "system": "PI-RADS"
     },
     {
       "id": "pirads-2.1-changes",
@@ -148,7 +151,8 @@
         "auto_download": false,
         "redistribute": false,
         "evidence_url": "https://www.acr.org/Legal"
-      }
+      },
+      "system": "PI-RADS"
     },
     {
       "id": "pirads-2.1-lexicon",
@@ -173,9 +177,92 @@
         "auto_download": false,
         "redistribute": false,
         "evidence_url": "https://www.acr.org/Legal"
+      },
+      "system": "PI-RADS"
+    },
+    {
+      "id": "birads-v2025-manual",
+      "system": "BI-RADS",
+      "title": "ACR BI-RADS v2025 Manual",
+      "version": "v2025",
+      "year": 2025,
+      "responsible": [
+        "American College of Radiology"
+      ],
+      "role": "current_official_manual",
+      "status": "manual_authorization_required",
+      "format": "application/pdf",
+      "language": "en",
+      "source_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/BI-RADS",
+      "local_path": "data/raw/birads-v2025-manual/manual.pdf",
+      "modalities": [
+        "mammography",
+        "ultrasound",
+        "MRI",
+        "CEM"
+      ],
+      "rights": {
+        "license": "Copyright ACR; no open license identified",
+        "auto_download": false,
+        "redistribute": false,
+        "evidence_url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/BI-RADS",
+        "note": "Purchase and software licensing are offered by ACR. Local acquisition requires an appropriate copy and usage basis."
       }
+    },
+    {
+      "id": "birads-v2025-review-2026",
+      "system": "BI-RADS",
+      "title": "How Does ACR BI-RADS v2025 Change the Radiologist's Approach? A Practical Guide Across Mammography, Ultrasound, and MRI: A Narrative Review",
+      "version": "publication-2026-07-07 / describes BI-RADS v2025",
+      "standard_version": "v2025",
+      "year": 2026,
+      "published_on": "2026-07-07",
+      "responsible": [
+        "Ela Kaplan",
+        "Ahmet Burak Aydemir"
+      ],
+      "role": "secondary_narrative_review",
+      "status": "open_access_secondary_review",
+      "format": "application/pdf",
+      "language": "en",
+      "doi": "10.3390/diagnostics16132135",
+      "pmcid": "PMC13361901",
+      "source_url": "https://www.mdpi.com/2075-4418/16/13/2135",
+      "download_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13361901.1/PMC13361901.1.pdf",
+      "repository_metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13361901.1/PMC13361901.1.json",
+      "repository_xml_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13361901.1/PMC13361901.1.xml",
+      "repository_version": "PMC13361901.1",
+      "local_path": "data/raw/birads-v2025-review-2026/review.pdf",
+      "expected_pages": 31,
+      "modalities": [
+        "mammography",
+        "ultrasound",
+        "MRI",
+        "CEM"
+      ],
+      "structure": [
+        "text",
+        "tables",
+        "figures",
+        "references"
+      ],
+      "rights": {
+        "license": "Creative Commons Attribution (CC BY 4.0)",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "auto_download": true,
+        "redistribute": "Under the applicable license and attribution; originals remain outside Git",
+        "evidence_url": "https://www.mdpi.com/2075-4418/16/13/2135",
+        "note": "Kaplan E, Aydemir AB. Diagnostics 2026;16(13):2135. Secondary review, not the ACR manual. Check individual figure credit lines before reuse.",
+        "verified_on": "2026-11-15"
+      },
+      "expected_sha256": "2e8781056328c92d29df55c934574a6191ff9c10644d3b3e91b04d1740301bcc",
+      "repository_xml_sha256": "7e4b15fd6fe6effd09b30f1e6bcdb7f967a83a7454d1617fd23978c824eea907"
     }
   ],
-  "updated_on": "2026-11-13",
-  "active_document_id": "pirads-2.1-2019"
+  "updated_on": "2026-11-15",
+  "active_document_id": "pirads-2.1-2019",
+  "chat_document_ids": [
+    "pirads-2.1-2019",
+    "birads-v2025-review-2026"
+  ]
 }
